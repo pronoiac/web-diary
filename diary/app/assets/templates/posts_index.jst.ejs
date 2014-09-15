@@ -1,0 +1,8 @@
+<ul>
+  <% posts.each (function (post) { %>
+    <li>
+      <h2><%= post.escape("title") %></h2>
+      <p><%= post.escape("body") %></p>
+    </li>    
+  <% }) %>
+</ul>
