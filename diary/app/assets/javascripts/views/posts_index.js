@@ -5,7 +5,19 @@ Diary.Views.PostsIndex = Backbone.View.extend({
     this.$el.html(content);
     return this;
   },
+  
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render.bind(this))
+    this.listenTo(this.collection, "sync remove add change:title reset", this.render.bind(this))
+  },
+  
+  events: {
+    'click .post-delete': 'deletePost'
+  },
+  
+  deletePost: function(event) {
+    // alert("delete clicked!");
+    var $target = $(event.currentTarget);
+    var postId = $target.data("id");
+    this.collection.get(postId).destroy();
   }
 })

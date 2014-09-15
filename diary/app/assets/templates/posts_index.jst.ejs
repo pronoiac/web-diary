@@ -3,6 +3,7 @@
     <li>
       <h2><%= post.escape("title") %></h2>
       <p><%= post.escape("body") %></p>
+      <button class="post-delete" data-id="<%= post.escape("id") %>">Delete</button>
     </li>    
   <% }) %>
 </ul>

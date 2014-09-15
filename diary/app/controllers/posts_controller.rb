@@ -13,6 +13,12 @@ class PostsController < ApplicationController
       render :json => @post.errors.full_messages, :status => 422
     end
   end
+  
+  def destroy
+    @post = Post.find(params[:id]) 
+    @post.destroy
+    render :json => @post
+  end
 
   def post_params
     params.require(:post).permit(:title, :body)
