@@ -24,4 +24,9 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
   
+  def show
+    @post = Post.find(params[:id])
+    render :json => @post
+  end
+
 end
