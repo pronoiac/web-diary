@@ -5,7 +5,8 @@ Diary.Routers.Router = Backbone.Router.extend({
   },
   routes: {
     '': 'posts_index',
-    'posts/:id': 'post_show'
+    'posts/:id': 'post_show',
+    'posts/new' : 'post_form'
   },
   posts_index: function () {
     Diary.posts.fetch();
@@ -16,5 +17,8 @@ Diary.Routers.Router = Backbone.Router.extend({
     var post = Diary.posts.getOrFetch(id);
     var view = new Diary.Views.PostShow({model: post});
     this.$rootEl.html(view.render().$el);
+  },
+  post_form: function () {
+    
   }
 })

@@ -8,6 +8,7 @@ Diary.Collections.Posts = Backbone.Collection.extend ({
       // not available via get; fetch posts
       post = new Diary.Models.Post({id: id}); // id});
       post.fetch();
+      console.log('we are in fetch')
     } 
     return post;
   }
